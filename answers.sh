@@ -22,3 +22,31 @@ FROM students S
 WHERE s.Name='Alex');
 
 
+#PART2
+CREATE TABLE "graduates" (
+	"ID"	INTEGER NOT NULL,
+	"Name"	INTEGER NOT NULL UNIQUE,
+	"Age"	INTEGER,
+	"Gender"	TEXT,
+	"Points"	INTEGER,
+	"Graduation"	TEXT,
+	#FOREIGN KEY("Graduation") REFERENCES "students"("Date"),
+	PRIMARY KEY("ID" AUTOINCREMENT)
+);
+#Copy Layal's data from students to graduates
+
+INSERT INTO graduates(ID,Name,Age,Gender,Points)
+Select * from students;
+
+#Add the graduation date previously mentioned to Layal's record in graduates
+
+UPDATE graduates
+set Graduation ='08/09/2018'
+WHERE graduates.Name='Layal';
+
+#Remove Layal's record from students
+
+DELETE FROM students
+WHERE students.Name='Layal';
+
+
