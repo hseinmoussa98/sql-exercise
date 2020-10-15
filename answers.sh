@@ -50,3 +50,39 @@ DELETE FROM students
 WHERE students.Name='Layal';
 
 
+
+
+#Part3
+
+#Produce a table that contains, for each employee, his/her name, company name, and company date.
+CREATE TABLE New_Table AS
+SELECT employees.Name,employees.Company,companies.Date
+FROM employees
+INNER JOIN companies
+ON companies.Name=employees.Company;
+
+
+or 
+CREATE TABLE New_Table AS
+SELECT employees.Name,employees.Company,companies.Date
+FROM employees ,companies
+WHERE employees.Company=companies.Name;
+
+
+
+#Find the name of employees that work in companies made before 2000.
+
+SELECT employees.Name
+FROM employees ,companies
+WHERE companies.Date<2000 and employees.Company=companies.Name;
+
+
+
+#Find the name of company that has a graphic designer.
+SELECT E.name
+FROM companies C ,employees E
+WHERE E.Role='Graphic Designer'
+and E.Company=C.name;
+
+
+
