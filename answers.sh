@@ -86,3 +86,31 @@ and E.Company=C.name;
 
 
 
+#Part4
+
+#Find the person with the highest number of points in students
+select S1.name
+FROM students S1
+WHERE S1.Points IN
+(select max(S2.points)
+FROM students S2);
+
+#Find the average of points in students
+select avg(S1.Points)
+FROM students S1;
+
+#Find the number of students that have 500 points
+select Count(*)
+FROM students S1
+WHERE S1.Points =500;
+
+#Find the names of students that contains 's'
+select S1.name
+FROM students S1
+WHERE S1.name like '%s%';
+
+#Find all students based on the decreasing order of their points
+select S1.name
+FROM students S1
+ORDER by S1.Points DESC;
+
